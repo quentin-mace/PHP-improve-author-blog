@@ -5,6 +5,7 @@ class ArticleController
     /**
      * Affiche la page d'accueil.
      * @return void
+     * @throws Exception
      */
     public function showHome() : void
     {
