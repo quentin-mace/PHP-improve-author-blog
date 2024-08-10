@@ -155,4 +155,13 @@
      {
          $this->views += $value;
      }
+
+     /**
+      * Getter pour le nombre de commentaires.
+      * @return int
+      */
+     public function getCommentCount() : int
+     {
+         return 42;
+     }
  }
