@@ -87,4 +87,25 @@ class Utils {
         return $_REQUEST[$variableName] ?? $defaultValue;
     }
 
+    public static function generateArrows(string $column, array $parameters) : string
+    {
+        if ($column == $parameters['column']) {
+            if ($parameters['order'] == 'asc') {
+                return "
+                    <a href='index.php?action=monitoring&column={$column}&order=asc'><img alt='Flèche de tri ASCENDANT' src='...black'></a>
+                    <a href='index.php?action=monitoring&column={$column}&order=desc'><img alt='Flèche de tri descendant' src='...'></a>
+                ";
+            }
+            if ($parameters['order'] == 'desc') {
+                return "
+                    <a href='index.php?action=monitoring&column={$column}&order=asc'><img alt='Flèche de tri ascendant' src='...'></a>
+                    <a href='index.php?action=monitoring&column={$column}&order=desc'><img alt='Flèche de tri DESCENDANT' src='...black'></a>
+                ";
+            }
+        }
+        return "
+            <a href='index.php?action=monitoring&column={$column}&order=asc'><img alt='Flèche de tri ascendant' src='...'></a>
+            <a href='index.php?action=monitoring&column={$column}&order=desc'><img alt='Flèche de tri descendant' src='...'></a>
+        ";
+    }
 }
