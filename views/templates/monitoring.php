@@ -21,7 +21,7 @@
         <tr>
             <td class="text-left"><?= $article->getTitle() ?></td>
             <td class="text-right"><?= $article->getViews() ?></td>
-            <td class="text-right"><?= $article->getCommentCount() ?></td>
+            <td class="text-right"><?= $article->getCommentCount($article->getId()) ?></td>
             <td class="text-right"><?= Utils::convertDateToFrenchFormat($article->getDateCreation()) ?></td>
         </tr>
     <?php } ?>

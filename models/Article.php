@@ -160,8 +160,10 @@
       * Getter pour le nombre de commentaires.
       * @return int
       */
-     public function getCommentCount() : int
+     public function getCommentCount($id) : int
      {
-         return 42;
+         $commentManager = new CommentManager();
+         $comments = $commentManager->getAllCommentsByArticleId($id);
+         return count($comments);
      }
  }
