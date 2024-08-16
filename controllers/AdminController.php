@@ -28,6 +28,7 @@ class AdminController {
     /**
      * Affiche la page de monitoring.
      * @return void
+     * @throws Exception
      */
     public function showMonitoring() : void
     {
@@ -47,6 +48,10 @@ class AdminController {
         $articleManager = new ArticleManager();
         $articles = $articleManager->getAllArticles();
 
+        //On trie les articles
+        $articles = $this->sortByParams($articles, $params);
+
+
 
         // On affiche la page d'administration.
         $view = new View("Monitoring");
@@ -55,6 +60,43 @@ class AdminController {
             'params' => $params
         ]);
     }
+
+
+    /**
+     * Sort a list of articles depending on an order and a column
+     * @param $articles Array Unsorted list of articles
+     * @param $params Array containing the column and order
+     * @return array
+     */
+    private function sortByParams($articles, $params) : array
+    {
+        usort($articles, function($a, $b) use ($params)
+        {
+            $callback = 0;
+            switch ($params['column']) {
+                case 'date':
+                    $callback = $a->getDateCreation() <=> $b->getDateCreation();
+                    break;
+                case 'comments':
+                    $callback = $a->getCommentCount($a->getId()) <=> $b->getCommentCount($b->getId());
+                    break;
+                case 'views':
+                    $callback = $a->getViews() <=> $b->getViews();
+                    break;
+                case 'article':
+                    $callback = $a->getTitle() <=> $b->getTitle();
+                    break;
+            }
+            if ($params['order'] == 'asc') {
+                return $callback;
+            } elseif ($params['order'] == 'desc') {
+                $callback = -$callback;
+            }
+            return $callback;
+        });
+        return $articles;
+    }
+
 
     /**
      * Vérifie que l'utilisateur est connecté.
