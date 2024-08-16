@@ -92,20 +92,20 @@ class Utils {
         if ($column == $parameters['column']) {
             if ($parameters['order'] == 'asc') {
                 return "
-                    <a href='index.php?action=monitoring&column={$column}&order=asc'><img alt='Flèche de tri ASCENDANT' src='...black'></a>
-                    <a href='index.php?action=monitoring&column={$column}&order=desc'><img alt='Flèche de tri descendant' src='...'></a>
+                    <a href='index.php?action=monitoring&column={$column}&order=asc'><i class='fa-solid fa-caret-up' style='color: #d79922;'></i></a>
+                    <a href='index.php?action=monitoring&column={$column}&order=desc'><i class='fa-solid fa-caret-down' style='color: #efe1ba;'></i></a>
                 ";
             }
             if ($parameters['order'] == 'desc') {
                 return "
-                    <a href='index.php?action=monitoring&column={$column}&order=asc'><img alt='Flèche de tri ascendant' src='...'></a>
-                    <a href='index.php?action=monitoring&column={$column}&order=desc'><img alt='Flèche de tri DESCENDANT' src='...black'></a>
+                    <a href='index.php?action=monitoring&column={$column}&order=asc'><i class='fa-solid fa-caret-up' style='color: #efe1ba;'></i></a>
+                    <a href='index.php?action=monitoring&column={$column}&order=desc'><i class='fa-solid fa-caret-down' style='color: #d79922;'></i></a>
                 ";
             }
         }
         return "
-            <a href='index.php?action=monitoring&column={$column}&order=asc'><img alt='Flèche de tri ascendant' src='...'></a>
-            <a href='index.php?action=monitoring&column={$column}&order=desc'><img alt='Flèche de tri descendant' src='...'></a>
+            <a href='index.php?action=monitoring&column={$column}&order=asc'><i class='fa-solid fa-caret-up' style='color: #efe1ba;'></i></a>
+            <a href='index.php?action=monitoring&column={$column}&order=desc'><i class='fa-solid fa-caret-down' style='color: #efe1ba;'></i></a>
         ";
     }
 }

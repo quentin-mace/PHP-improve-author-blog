@@ -10,26 +10,26 @@
 <table class="monitoringTable">
     <thead>
         <tr>
-            <th class="text-left">
-                Article
+            <th class="monitoringTable-titles">
+                <p>Article</p>
                 <div class="sorting-arrows">
                     <?= Utils::generateArrows('article', $params) ?>
                 </div>
             </th>
-            <th class="text-right">
-                Vues
+            <th class="monitoringTable-titles">
+                <p>Vues</p>
                 <div class="sorting-arrows">
                     <?= Utils::generateArrows('views', $params) ?>
                 </div>
             </th>
-            <th class="text-right">
-                Commentaires
+            <th class="monitoringTable-titles">
+                <p>Commentaires</p>
                 <div class="sorting-arrows">
                     <?= Utils::generateArrows('comments', $params) ?>
                 </div>
             </th>
-            <th class="text-right">
-                Date de publication
+            <th class="monitoringTable-titles">
+                <p>Date de publication</p>
                 <div class="sorting-arrows">
                     <?= Utils::generateArrows('date', $params) ?>
                 </div>
