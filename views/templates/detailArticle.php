@@ -28,7 +28,7 @@
             foreach ($comments as $comment) {
                 echo '<li>';
                 if(isset($_SESSION['user'])){
-                    echo "<a href='index.php?action=deleteComment&id={$comment->getId()}&articleId={$article->getId()}'><i class='fa-solid fa-trash-can' style='color: #ff0000;'></i></a>";
+                    echo "<a ". Utils::askConfirmation("Êtes vous sur de vouloir supprimer le commentaire ?") ." href='index.php?action=deleteComment&id={$comment->getId()}&articleId={$article->getId()}'><i class='fa-solid fa-trash-can' style='color: #ff0000;'></i></a>";
                 }
                 echo '  <div class="smiley">☻</div>';
                 echo '  <div class="detailComment">';

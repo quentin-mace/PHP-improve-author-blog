@@ -19,6 +19,7 @@ class ArticleController
     /**
      * Affiche le détail d'un article.
      * @return void
+     * @throws Exception
      */
     public function showArticle() : void
     {
@@ -45,6 +46,7 @@ class ArticleController
     /**
      * Affiche le formulaire d'ajout d'un article.
      * @return void
+     * @throws Exception
      */
     public function addArticle() : void
     {
@@ -55,6 +57,7 @@ class ArticleController
     /**
      * Affiche la page "à propos".
      * @return void
+     * @throws Exception
      */
     public function showApropos() {
         $view = new View("A propos");
