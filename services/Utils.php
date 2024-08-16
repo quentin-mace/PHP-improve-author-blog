@@ -87,6 +87,13 @@ class Utils {
         return $_REQUEST[$variableName] ?? $defaultValue;
     }
 
+
+    /**
+     * Fonction permettant de générer des "flèches" pour trier une colonne
+     * @param string $column Colonne sur laquelle générer les flèches
+     * @param array $parameters Paramètres indiquant quelle colonne est actuellement triée, et dans quel ordre
+     * @return string
+     */
     public static function generateArrows(string $column, array $parameters) : string
     {
         if ($column == $parameters['column']) {
