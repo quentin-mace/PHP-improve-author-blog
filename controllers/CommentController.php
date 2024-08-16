@@ -44,4 +44,32 @@ class CommentController
         // On redirige vers la page de l'article.
         Utils::redirect("showArticle", ['id' => $idArticle]);
     }
+
+    public function deleteComment() : void
+    {
+        // Récupération des données du formulaire
+        $commentId = Utils::request("id");
+        $articleId = Utils::request("articleId");
+
+        //Vérification de la validité des données
+        if (empty($commentId) || empty($articleId)) {
+            throw new Exception("Erreur : Données manquantes");
+        }
+
+        //Vérification de l'existence du commentaire
+        $commentManager = new CommentManager();
+        $comment = $commentManager->getCommentById($commentId);
+        if (!$comment) {
+            throw new Exception("Le commentaire n'existe pas.");
+        }
+
+        //Suppression du commentaire
+        $result = $commentManager->deleteComment($comment);
+        if (!$result) {
+            throw new Exception("Une erreur est survenue lors de la suppression.");
+        }
+
+        // Redirection vers la page de l'article.
+        Utils::redirect("showArticle", ['id' => $articleId]);
+    }
 }
