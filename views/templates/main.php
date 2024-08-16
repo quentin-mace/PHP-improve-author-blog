@@ -25,8 +25,8 @@
         <nav>
             <a href="index.php">Articles</a>
             <a href="index.php?action=apropos">À propos</a>
-            <?php 
-                // Si on est connecté, on affiche le bouton de déconnexion, sinon, on affiche le bouton de connexion : 
+            <?php
+                //Options affichées si un administrateur est connecté
                 if (isset($_SESSION['user'])) {
                     echo '<a href="index.php?action=admin">Admin</a>';
                     echo '<a href="index.php?action=monitoring">Monitoring</a>';
