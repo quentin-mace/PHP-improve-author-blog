@@ -47,7 +47,7 @@ class CommentController
 
 
     /**
-     * Suprime un commentaire en base
+     * Supprime un commentaire en base
      * @return void
      * @throws Exception
      */
