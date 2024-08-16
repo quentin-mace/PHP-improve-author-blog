@@ -1,6 +1,6 @@
 <?php
 
-class CommentController 
+class CommentController
 {
     /**
      * Ajoute un commentaire.
@@ -45,6 +45,12 @@ class CommentController
         Utils::redirect("showArticle", ['id' => $idArticle]);
     }
 
+
+    /**
+     * Suprime un commentaire en base
+     * @return void
+     * @throws Exception
+     */
     public function deleteComment() : void
     {
         // Récupération des données du formulaire
