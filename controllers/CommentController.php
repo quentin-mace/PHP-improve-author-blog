@@ -53,7 +53,7 @@ class CommentController
      */
     public function deleteComment() : void
     {
-        // Récupération des données du formulaire
+        // Récupération des données
         $commentId = Utils::request("id");
         $articleId = Utils::request("articleId");
 
